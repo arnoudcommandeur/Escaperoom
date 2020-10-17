@@ -1,0 +1,31 @@
+{
+  "name": "escaperoom",
+  "version": "0.1.0",
+  "description": "DApp for collecting badges after succesfully solving escaperooms",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnoudcommandeur/Escaperoom.git"
+  },
+  "keywords": [
+    "escaperoom",
+    "dapp",
+    "bootcamp",
+    "consensys"
+  ],
+  "author": "Arnoud Commandeur",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arnoudcommandeur/Escaperoom/issues"
+  },
+  "homepage": "https://github.com/arnoudcommandeur/Escaperoom#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.2.0"
+  }
+}
