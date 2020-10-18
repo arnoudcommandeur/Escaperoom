@@ -4,24 +4,44 @@ pragma solidity ^0.6.0;
 import "@openzeppelin/contracts/presets/ERC1155PresetMinterPauser.sol";
 
 contract Collactables is ERC1155PresetMinterPauser {
-    constructor() public ERC1155PresetMinterPauser("https://erc1155metadata.azurewebsites.net/api/token/{id}") {
-        _mint(msg.sender, 0, 10**18, "");
-        _mint(msg.sender, 1, 10**27, "");
-        _mint(msg.sender, 2, 1, "");
-        _mint(msg.sender, 3, 10**9, "");
-        _mint(msg.sender, 4, 10**9, "");
+
+    struct s_Escaperoom {
+        uint _Id;
+        string _Name;
+        address _Admin;
+        uint _TotalCollactables;
+        uint _TotalGivenAway;
     }
 
-    // function mint(uint256 _id, uint256 _count) public onlyOwner {
-    //     _mint(msg.sender, _id, _count, "");
-    // }
+    //bytes32 public constant ESCAPEROOM_ADMIN_ROLE = keccak256("ESCAPEROOM_ADMIN_ROLE");
+    uint public EscapeRoomCounter;
+    mapping(uint => s_Escaperoom) public Escaperooms;
+    mapping(address => uint) public EscaperoomAdmins;
 
-    // function pause() public onlyOwner() {
-    //     _pause();
-    // }
+    constructor() public ERC1155PresetMinterPauser("https://erc1155metadata.azurewebsites.net/api/token/{id}") {
+        // _mint(msg.sender, 2, 1, "");
+        // _mint(msg.sender, 0, 10**18, "");
+    }
 
-    // function unpause() public onlyOwner() {
-    //     _unpause();
-    // }
+    function createEscaperoom(address _EscaperoomAdmin, string memory _Name, uint _TotalCollactables) public {
+        require(hasRole(DEFAULT_ADMIN_ROLE,msg.sender) == true, "Error: Calling address does not have DEFAULT_ADMIN_ROLE role");
+        require(_TotalCollactables > 0, "Error: TotalCollactables must be > 0");
+        require(_EscaperoomAdmin != address(0), "Error: _EscaperoomAdmin is invalid");
+
+        EscaperoomAdmins[_EscaperoomAdmin] = EscapeRoomCounter;
+
+        //grantRole(ESCAPEROOM_ADMIN_ROLE, _EscaperoomAdmin);
+
+        s_Escaperoom memory tmpEscaperoom;
+        tmpEscaperoom._Id = EscapeRoomCounter;
+        tmpEscaperoom._Name = _Name;
+        tmpEscaperoom._Admin = _EscaperoomAdmin;
+        tmpEscaperoom._TotalCollactables = _TotalCollactables;
+
+        Escaperooms[EscapeRoomCounter] = tmpEscaperoom;
+        EscapeRoomCounter += 1;
+
+        _mint(_EscaperoomAdmin, EscapeRoomCounter, _TotalCollactables, "");
+    }
 
 }
