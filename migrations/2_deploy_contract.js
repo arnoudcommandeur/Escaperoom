@@ -1,5 +1,5 @@
-var Collactables = artifacts.require('Collactables')
+var Collectables = artifacts.require('Collectables')
 
 module.exports = (deployer) => {
-    deployer.deploy(Collactables)
+    deployer.deploy(Collectables)
 }
