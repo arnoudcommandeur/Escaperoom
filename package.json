@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,9 @@
   "homepage": "https://github.com/arnoudcommandeur/Escaperoom#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^3.2.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.5.4"
   }
+
 }
