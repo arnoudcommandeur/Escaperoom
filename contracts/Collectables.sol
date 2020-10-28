@@ -122,6 +122,6 @@ contract Collectables is ERC1155PresetMinterPauser {
 
         PricePerCollectable = _newPricePerCollectable;
         emit pricePerCollectableUpdated(msg.sender, _newPricePerCollectable);
-
     }
+
 }

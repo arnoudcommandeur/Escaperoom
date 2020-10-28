@@ -1,8 +1,10 @@
 // Init contract
 var instance = await Collectables.deployed();
+await instance.setPricePerCollectable(2000000);
+
 var accounts = await web3.eth.getAccounts();
 await instance.createNewEscaperoom(accounts[1], "The mask", "100000");
-await instance.mint(1, 2, {from: accounts[1], value:2000000});
+await instance.mint(1, 2, {from: accounts[1], value:4000000});
 
 await instance.rewardVisitor(1, accounts[2], {from: accounts[1]} );
 await instance.rewardVisitorBatch(1, [accounts[2], accounts[3]], {from: accounts[1]} );
@@ -16,7 +18,7 @@ await web3.eth.getBalance(instance.address).then(result => console.log(result));
 
 instance.EscaperoomAdmins(accounts[1]).then(result => result);
 
-instance.EscapeRoomCounter.call().then(function (res) {console.log(res)});
+instance.EscapeRoomCounter.call().then(function (res) {console.log(res.toNumber())});
 instance.Escaperooms.call(1).then(function (res) {console.log(res)});
 
 

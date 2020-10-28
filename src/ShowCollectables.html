@@ -3,45 +3,61 @@
 <head lang="en">
     <link rel="stylesheet" type="text/css" href="mobileui/style.css">
 	<meta charset="UTF-8">
-	<title>Toon mijn adres</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="js/library/jquery-3.3.1.min.js"></script>
-	<script src="js/library/jquery.qrcode.min.js"></script>
-	<script src="js/library/qrcode.js"></script>
-        <!-- <script src="js/Library/web3.min.js"></script> -->
+	<title>Toon mijn adres</title>
 
+    <!-- Bootstrap -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <body>
-<div class="header brown-900">
-  <button class="left icon ion-navicon" name="button"></button>
-  <h1><div id="MenuTitle">The Escape Room Experience</div></h1>
-  <div class="right">
-    <button class="icon ion-android-more-vertical"></button>
-  </div>
-</div>
-
-<div class="container">
-	<div class="panel panel-info">
-		<div class="panel-heading">
-			<h3 class="panel-title">Mijn adres</h3>
-		</div>
-        <br><br><br><br><br>
-		<div id="qrcodeCanvas" align="center"></div>
+	<div class="header brown-900">
+	<button class="left icon ion-navicon" name="button"></button>
+	<h1><div id="MenuTitle">The Escape Room Experience</div></h1>
+	<div class="right">
+		<button class="icon ion-android-more-vertical"></button>
 	</div>
-<br>
-<!-- <div align="center">Adres:</div> -->
-<div id="MyAddress" align="center">UNKNOWN</div>
-</div>
-
-<!-- <div class="footer teal-700">
-	<div class="buttons-group full">
-  		<button id="Terug" class="teal-700 ion-android-radio-button-on border-teal-50">Terug</button>
 	</div>
-</div> -->
 
-<!-- Scripts -->
-<!-- <script src="cordova.js"></script> -->
-<script type="text/javascript" src="mobileui/mobileui.js"></script>
-<script src="js/ShowQRCode.js"></script>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">11123JAJA Pete's Pet Shop</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+
+      <div id="collectableRow" class="row">
+        <!-- PETS LOAD HERE -->
+      </div>
+    </div>
+
+    <div id="collectableTemplate" style="display: none;">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-default panel-pet">
+          <div class="panel-heading">
+            <h3 class="panel-title">Scrappy</h3>
+          </div>
+          <div class="panel-body">
+            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
+            <br/><br/>
+            <strong>Breed</strong>: <span class="pet-breed">Golden Retriever</span><br/>
+            <strong>Age</strong>: <span class="pet-age">3</span><br/>
+            <strong>Location</strong>: <span class="pet-location">Warren, MI</span><br/><br/>
+            <button class="btn btn-default btn-adopt" type="button" data-id="0">Adopt</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	<!-- Scripts -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script src="js/library/bootstrap.min.js"></script>
+    <script src="js/library/web3.min.js"></script>
+    <script src="js/library/truffle-contract.js"></script>
+    <script src="js/showcollectables.js"></script>
 </body>
 </html>
