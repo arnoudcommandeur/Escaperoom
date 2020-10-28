@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+	<meta charset="UTF-8">
+	<title>Toon mijn adres</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/library/jquery-3.3.1.min.js"></script>
+	<script src="js/library/jquery.qrcode.min.js"></script>
+	<script src="js/library/qrcode.js"></script>
+        <!-- <script src="js/Library/web3.min.js"></script> -->
+
+</head>
+<body>
+<div class="header brown-900">
+  <button class="left icon ion-navicon" name="button"></button>
+  <h1><div id="MenuTitle">The Escape Room Experience</div></h1>
+  <div class="right">
+    <button class="icon ion-android-more-vertical"></button>
+  </div>
+</div>
+
+<div class="container">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">Mijn adres</h3>
+		</div>
+        <br><br><br><br><br>
+		<div id="qrcodeCanvas" align="center"></div>
+	</div>
+<br>
+<!-- <div align="center">Adres:</div> -->
+<div id="MyAddress" align="center">UNKNOWN</div>
+</div>
+
+<!-- <div class="footer teal-700">
+	<div class="buttons-group full">
+  		<button id="Terug" class="teal-700 ion-android-radio-button-on border-teal-50">Terug</button>
+	</div>
+</div> -->
+
+<!-- Scripts -->
+<!-- <script src="cordova.js"></script> -->
+<script type="text/javascript" src="mobileui/mobileui.js"></script>
+<script src="js/ShowQRCode.js"></script>
+</body>
+</html>
