@@ -3,10 +3,10 @@ var instance = await Collectables.deployed();
 await instance.setPricePerCollectable(2000000);
 
 var accounts = await web3.eth.getAccounts();
-await instance.createNewEscaperoom(accounts[1], "The mask", "100000");
+await instance.createNewEscaperoom(accounts[1], "The mask", 100000);
 await instance.mint(1, 2, {from: accounts[1], value:4000000});
 
-await instance.rewardVisitor(1, accounts[2], {from: accounts[1]} );
+await instance.rewardVisitor(2, accounts[0], {from: accounts[6]} );
 await instance.rewardVisitorBatch(1, [accounts[2], accounts[3]], {from: accounts[1]} );
 await instance.balanceOf(accounts[2],1).then(result => result.toNumber());
 
