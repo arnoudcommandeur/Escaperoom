@@ -5,24 +5,6 @@ App = {
 logresult: null,
 
   init: async function() {
-    // Load pets.
-    // $.getJSON('../pets.json', function(data) {
-    //   var collectableRow = $('#collectableRow');
-    //   var collectableTemplate = $('#collectableTemplate');
-
-    //   for (i = 0; i < data.length; i ++) {
-
-    //     // console.log(i);
-    //     collectableTemplate.find('.panel-title').text(data[i].name);
-    //     collectableTemplate.find('img').attr('src', data[i].picture);
-    //     collectableTemplate.find('.pet-breed').text(data[i].breed);
-    //     collectableTemplate.find('.pet-age').text(data[i].age);
-    //     collectableTemplate.find('.pet-location').text(data[i].location);
-    //     collectableTemplate.find('.btn-adopt').attr('data-id', data[i].id);
-
-    //     collectableRow.append(collectableTemplate.html());
-    //   }
-    // });
 
     await App.initWeb3();
   },
