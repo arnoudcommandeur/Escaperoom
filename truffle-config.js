@@ -1,5 +1,5 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
-const INFURA_KEY = "24fe64a099d1406db72d69d9971c2d15"
+
 
 if (!MNEMONIC || !INFURA_KEY) {
   console.error("Please set a mnemonic and infura key.")
