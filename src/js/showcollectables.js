@@ -108,7 +108,7 @@ App.logresult = result;
 
       return instance.balanceOf.call(App.account[0],EscapeRoomCounter);
     }).then(function(tokens) {
-      console.log("Number of Tokens for Escape Room: " + EscapeRoomCounter + " for account: " + web3.eth.accounts[0] + ": " + tokens.toNumber());
+      console.log("Number of Tokens for Escape Room: " + EscapeRoomCounter + " for account: " + App.account + ": " + tokens.toNumber());
 
         if (tokens.toNumber() > 0) {
           console.log(tokens.toNumber());

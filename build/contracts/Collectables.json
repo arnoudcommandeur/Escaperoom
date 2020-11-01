@@ -12058,7 +12058,7 @@
     "version": "0.6.2+commit.bacdbe57.Emscripten.clang"
   },
   "networks": {
-    "5777": {
+    "4": {
       "events": {
         "0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31": {
           "anonymous": false,
@@ -12279,25 +12279,6 @@
           "name": "Unpaused",
           "type": "event"
         },
-        "0x08dcc1ac80d12aee46948ffde43bee0bba6bfc44fdcf14b55ba8cee9249213f5": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": true,
-              "internalType": "address",
-              "name": "_visitor",
-              "type": "address"
-            },
-            {
-              "indexed": true,
-              "internalType": "uint256",
-              "name": "_id",
-              "type": "uint256"
-            }
-          ],
-          "name": "visitorRewarded",
-          "type": "event"
-        },
         "0x6d55988fd84c3eae3398916f51ca9d47bf4e053e5a444b72ee7583fc0143ebc3": {
           "anonymous": false,
           "inputs": [
@@ -12316,15 +12297,34 @@
           ],
           "name": "pricePerCollectableUpdated",
           "type": "event"
+        },
+        "0x08dcc1ac80d12aee46948ffde43bee0bba6bfc44fdcf14b55ba8cee9249213f5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "_visitor",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "_id",
+              "type": "uint256"
+            }
+          ],
+          "name": "visitorRewarded",
+          "type": "event"
         }
       },
       "links": {},
-      "address": "0x18E93de174D99b081b4D98e11C9e1FD6878Be6B3",
-      "transactionHash": "0x32d1df3add5ed10f709dfb8aad389032e0d8a058fac21cbf4bd76762daaae29f"
+      "address": "0x1e0e810e49C4E942A9A2C917fB06235d2fd951BE",
+      "transactionHash": "0x3e3153a37ea63e5222f542e0227fbe4a32f96331f6a640b221f2aeed9725af9b"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-31T18:54:51.949Z",
+  "updatedAt": "2020-11-01T14:48:17.946Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

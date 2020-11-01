@@ -3,4 +3,3 @@ flattened/
 node_modules/
 .env*
 *.DS_Store
-truffle-config.js
