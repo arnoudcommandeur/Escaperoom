@@ -11,7 +11,7 @@ module.exports = (deployer) => {
         var accounts = await web3.eth.getAccounts();
         await instance.setPricePerCollectable(100000);
         await instance.createNewEscaperoom(accounts[5], "The mask", 100000);
-        // await instance.createNewEscaperoom(accounts[6], "The mask", 100000);
+        await instance.createNewEscaperoom(accounts[6], "The mask", 100000);
         // await instance.createNewEscaperoom(accounts[7], "The mask", 100000);
         // await instance.createNewEscaperoom(accounts[8], "The mask", 100000);
         // await instance.createNewEscaperoom(accounts[9], "The mask", 100000);
