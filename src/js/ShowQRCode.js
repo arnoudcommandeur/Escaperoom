@@ -21,12 +21,49 @@ function deviceReady(){
 
 
 function showAddress() {
+    var url = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/rewardvisitor.html?account=' + web3.eth.defaultAccount;
+
     jQuery('#qrcodeCanvas').qrcode({
-        text: web3.eth.defaultAccount
+        text: url // web3.eth.defaultAccount
     });	
 
-	document.getElementById("MyAddress").innerHTML = web3.eth.defaultAccount;
+	document.getElementById("MyAddress").innerHTML = url;// web3.eth.defaultAccount;
+    console.log(url);
 };
+
+  function subscribeEvents() {
+    $.getJSON('Collectables.json', function(data) {
+      // Get the necessary contract artifact file and instantiate it with @truffle/contract
+      var CollectablesArtifact = data;
+      App.contracts.Collectable = TruffleContract(CollectablesArtifact);
+
+      // Set the provider for our contract
+      App.contracts.Collectable.setProvider(App.web3Provider);
+
+
+    App.contracts.Collectable.deployed().then(function(instance) {
+    //collectableInstance = instance;
+
+      const subscription = web3.eth.subscribe(
+        'logs',
+        {
+          address: instance.address, // '0xE3BA9a866795c9bc416A31c0893518fDFA616A97'
+          from: 0,
+          // topics: [ [web3.utils.sha3('visitorRewarded(address,uint256)') ] ]      
+          topics: [ web3.utils.sha3('visitorRewarded(address,uint256)') , '0x000000000000000000000000' + App.account[0].substring(2,).toLowerCase(), null  ]
+        },
+        (error, result) => {
+          if (error) return;
+          // do something with the data
+          console.log(result);
+        App.logresult = result;
+          window.location.href = 'showcollectibles.html';    
+        }
+      );
+
+    })
+    });
+  };
 
 
 // jQuery(function() {
@@ -43,6 +80,7 @@ window.addEventListener('load', async () => {
             await ethereum.enable();
             // Acccounts now exposed
             showAddress();
+            subscribeEvents();
             //web3.eth.sendTransaction({/* ... */});
         } catch (error) {
             // User denied account access...

@@ -12,13 +12,17 @@
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <body>
-	<div class="header brown-900">
-	<button class="left icon ion-navicon" name="button"></button>
-	<h1><div id="MenuTitle">The Escape Room Experience</div></h1>
-	<div class="right">
-		<button class="icon ion-android-more-vertical"></button>
-	</div>
-	</div>
+		<div id="myMenu" class="menu brown-900">
+			<button class="brown-900 full" onclick="window.location.href='index.html'">START</button>
+			<button class="brown-900 full" onclick="window.location.href='showcollectibles.html'">My Collectibles</button>
+			<button class="brown-900 full" onclick="window.location.href='showqrcode.html'">Collect</button>
+			<button class="brown-900 full" onclick="window.location.href='scanqrcode.html'">Scan Code 1</button>
+			<button class="brown-900 full" onclick="window.location.href='scanqrcode2.html'">Scan Code 2</button>
+		</div>
+		<div class="header brown-900 content">
+			<button class="left icon ion-navicon" name="button" onclick="openMenu('myMenu')"></button>
+			<h1>Escape Room Collectibles</h1>
+		</div>
 
     <div class="container">
       <div class="row">
@@ -59,6 +63,6 @@
     <script src="js/library/bootstrap.min.js"></script>
     <script src="js/library/web3.min.js"></script>
     <script src="js/library/truffle-contract.js"></script>
-    <script src="js/showcollectables.js"></script>
+    <script src="js/showcollectibles.js"></script>
 </body>
 </html>

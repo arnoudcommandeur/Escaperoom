@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+<!-- <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script> -->
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Toon mijn adres</title>
+
+    <!-- Bootstrap -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+</head>
+<body>
+    <div id="myMenu" class="menu brown-900">
+        <button class="brown-900 full" onclick="window.location.href='index.html'">START</button>
+        <button class="brown-900 full" onclick="window.location.href='showcollectibles.html'">My Collectibles</button>
+        <button class="brown-900 full" onclick="window.location.href='showqrcode.html'">Collect</button>
+        <button class="brown-900 full" onclick="window.location.href='scanqrcode.html'">Scan Code 1</button>
+        <button class="brown-900 full" onclick="window.location.href='scanqrcode2.html'">Scan Code 2</button>
+    </div>
+    <div class="header brown-900 content">
+        <button class="left icon ion-navicon" name="button" onclick="openMenu('myMenu')"></button>
+        <h1>Escape Room Collectibles</h1>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+<!-- Scanner new -->
+<!-- <div id="container">
+    <h1>QR Code Scanner</h1>
+
+    <a id="btn-scan-qr">
+        <img src="https://uploads.sitepoint.com/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+    <a/>
+
+    <canvas hidden="" id="qr-canvas"></canvas>
+
+    <div id="qr-result" hidden="">
+        <b>Data:</b> <span id="outputData"></span>
+    </div>
+</div> -->
+
+<!-- Scannen old -->
+<!-- https://blog.minhazav.dev/research/html5-qrcode.html -->
+
+    <div id="reader" width="600px"></div>
+
+
+    <!-- Scripts -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script src="js/library/bootstrap.min.js"></script>
+    <script src="js/library/web3.min.js"></script>
+    <script src="js/library/truffle-contract.js"></script>
+    <script src="js/library/html5-qrcode.min.js"></script>
+
+</body>
+</html>
+
+<script>
+
+function onScanSuccess(qrCodeMessage) {
+	// handle on success condition with the decoded message
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+	"reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
+
+</script>

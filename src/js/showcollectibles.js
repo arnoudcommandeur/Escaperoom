@@ -2,7 +2,7 @@ App = {
   web3Provider: null,
   contracts: {},
   account: null,
-logresult: null,
+  logresult: null,
 
   init: async function() {
 
@@ -142,36 +142,36 @@ App.logresult = result;
   //   });
   // },
 
-  bindEvents: function() {
-    $(document).on('click', '.btn-adopt', App.handleAdopt);
-  },
+  // bindEvents: function() {
+  //   $(document).on('click', '.btn-adopt', App.handleAdopt);
+  // },
 
-  handleAdopt: function(event) {
-    event.preventDefault();
+  // handleAdopt: function(event) {
+  //   event.preventDefault();
 
-    var petId = parseInt($(event.target).data('id'));
+  //   var petId = parseInt($(event.target).data('id'));
 
-    var adoptionInstance;
+  //   var adoptionInstance;
 
-    web3.eth.getAccounts(function(error, accounts) {
-      if (error) {
-        console.log(error);
-      }
+  //   web3.eth.getAccounts(function(error, accounts) {
+  //     if (error) {
+  //       console.log(error);
+  //     }
 
-      var account = accounts[0];
+  //     var account = accounts[0];
 
-      App.contracts.Adoption.deployed().then(function(instance) {
-        adoptionInstance = instance;
+  //     App.contracts.Adoption.deployed().then(function(instance) {
+  //       adoptionInstance = instance;
 
-        // Execute adopt as a transaction by sending account
-        return adoptionInstance.adopt(petId, {from: account});
-      }).then(function(result) {
-        return App.markAdopted();
-      }).catch(function(err) {
-        console.log(err.message);
-      });
-    });
-  }
+  //       // Execute adopt as a transaction by sending account
+  //       return adoptionInstance.adopt(petId, {from: account});
+  //     }).then(function(result) {
+  //       return App.markAdopted();
+  //     }).catch(function(err) {
+  //       console.log(err.message);
+  //     });
+  //   });
+  // }
 
 };
 
