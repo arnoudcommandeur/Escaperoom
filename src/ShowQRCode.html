@@ -1,51 +1,84 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
-	<meta charset="UTF-8">
-	<title>Toon mijn adres</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="js/library/jquery-3.3.1.min.js"></script>
-	<script src="js/library/jquery.qrcode.min.js"></script>
-	<script src="js/library/qrcode.js"></script>
-        <!-- <script src="js/Library/web3.min.js"></script> -->
+  <head lang="en">
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
+    <meta charset="UTF-8" />
+    <title>Toon mijn adres</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <script src="js/library/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="js/Library/web3.min.js"></script> -->
+  </head>
+  <body>
+    <div id="myMenu" class="menu brown-900">
+      <button
+        class="brown-900 full"
+        onclick="window.location.href='index.html'"
+      >
+        START
+      </button>
+      <button
+        class="brown-900 full"
+        onclick="window.location.href='showcollectibles.html'"
+      >
+        My Collectibles
+      </button>
+      <button
+        class="brown-900 full"
+        onclick="window.location.href='showqrcode.html'"
+      >
+        Collect
+      </button>
+      <button
+        class="brown-900 full"
+        onclick="window.location.href='scanqrcode.html'"
+      >
+        Scan Code 1
+      </button>
+      <button
+        class="brown-900 full"
+        onclick="window.location.href='scanqrcode2.html'"
+      >
+        Scan Code 2
+      </button>
+    </div>
+    <div class="header brown-900 content">
+      <button
+        class="left icon ion-navicon"
+        name="button"
+        onclick="openMenu('myMenu')"
+      ></button>
+      <h1>Escape Room Collectibles</h1>
+    </div>
 
-</head>
-<body>
-	<div id="myMenu" class="menu brown-900">
-		<button class="brown-900 full" onclick="window.location.href='index.html'">START</button>
-		<button class="brown-900 full" onclick="window.location.href='showcollectibles.html'">My Collectibles</button>
-		<button class="brown-900 full" onclick="window.location.href='showqrcode.html'">Collect</button>
-		<button class="brown-900 full" onclick="window.location.href='scanqrcode.html'">Scan Code 1</button>
-		<button class="brown-900 full" onclick="window.location.href='scanqrcode2.html'">Scan Code 2</button>
-	</div>
-	<div class="header brown-900 content">
-		<button class="left icon ion-navicon" name="button" onclick="openMenu('myMenu')"></button>
-		<h1>Escape Room Collectibles</h1>
-	</div>
+    <div class="container">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Mijn adres</h3>
+        </div>
+        <br /><br /><br /><br /><br />
+        <div id="qrcodeCanvas" align="center"></div>
+      </div>
+      <br />
+      <!-- <div align="center">Adres:</div> -->
+      <div id="MyAddress" align="center">UNKNOWN</div>
+    </div>
 
-<div class="container">
-	<div class="panel panel-info">
-		<div class="panel-heading">
-			<h3 class="panel-title">Mijn adres</h3>
-		</div>
-        <br><br><br><br><br>
-		<div id="qrcodeCanvas" align="center"></div>
-	</div>
-<br>
-<!-- <div align="center">Adres:</div> -->
-<div id="MyAddress" align="center">UNKNOWN</div>
-</div>
-
-<!-- <div class="footer teal-700">
+    <!-- <div class="footer teal-700">
 	<div class="buttons-group full">
   		<button id="Terug" class="teal-700 ion-android-radio-button-on border-teal-50">Terug</button>
 	</div>
 </div> -->
 
-<!-- Scripts -->
-<!-- <script src="cordova.js"></script> -->
-<script type="text/javascript" src="mobileui/mobileui.js"></script>
-<script src="js/ShowQRCode.js"></script>
-</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/library/jquery.qrcode.min.js"></script>
+    <script src="js/library/qrcode.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script src="js/library/bootstrap.min.js"></script>
+    <script src="js/library/web3.min.js"></script>
+    <script src="js/library/truffle-contract.js"></script>
+    <script src="js/showqrcode.js"></script>
+  </body>
 </html>
