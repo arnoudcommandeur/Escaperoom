@@ -80,7 +80,10 @@ $(function() {
     var d = new Date();
     var n = d.getTime();
 
+
+
     var url = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port + '/rewardvisitor.html?id=' + n + '&account=' + App.account[0];
+    //var url = 'https://join.status.im/browse/escaperoomcollectables.web.app/rewardvisitor.html?id=' + n + '&account=' + App.account[0];
 
     jQuery('#qrcodeCanvas').qrcode({
         text: url
