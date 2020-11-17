@@ -18,10 +18,13 @@ Step 3: Use the website on your computer. A detailed how-to-use movie can be fou
 
 The project contains the following directories:
 
-- .vs-code - This directory contains Visual Studio task definitions
-- build/contracts - This directory contains the output of compiled contracts (default Truffle folder)
-contracts - This directory contains the Collectable.sol contract and the defailt Migrations.sol contract which is used by Truffle migration script
--  
+- .vs-code - This folder contains Visual Studio task definitions
+- build/contracts - This folder contains the output of compiled contracts (default Truffle folder)
+contracts - This folder contains the Collectable.sol contract and the defailt Migrations.sol contract which is used by Truffle migration script
+- migrations - Default truffle folder which handle deployment of contracts, inclusing post deployment actions
+- node_modules - Folder which contains the OpenZeppeling default contracts
+- src - Folder that contains the UI
+- test - Default Truffle folder which contains the smart contract tests
 
 
 ## Prerequisites
