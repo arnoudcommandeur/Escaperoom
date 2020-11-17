@@ -4,6 +4,23 @@ An Ethereum based reward program for Escape Room lovers.
 
 Finish the Escape Room within the specified time and earn your own ERC1155 collectable.
 
+This website is part of the ConsenSys Bootcamp 2020.
+
+## How to use this website?
+
+Step 1: Make sure you have installed  all the tools described in the section [Prerequisites](#Prerequisites)
+
+Step 2: Follow instructions described [Getting started](#Getting-started)
+
+Step 3: Use the website on your computer. A detailed how-to-use movie can be found on Youtube
+
+## Directory structure
+
+The project contains the following directories:
+
+- 
+
+
 ## Prerequisites
 
 Please make sure you have all the Ethereum based development tools installed on your computer: 
@@ -56,7 +73,7 @@ Deploy the ERC1155 based smart contract via:
 truffle migrate --reset
 ```
 
-Mak sure that the src directory contains the right Collectables.json file after deploying. You can copy the file via:
+Optional: Make sure that the src directory contains the right Collectables.json file after deploying (only wehen deploying to Firebase). You can copy the file via:
 
 ```
 copy .\build\contracts\Collectables.json .\src\Collectables.json /Y
@@ -68,7 +85,7 @@ to make sure everything is working as expected, please run the following command
 ```
 truffle test
 ```
-- Start development server
+- Start development webserver
 
 you can now start your local webserver (lite-server) via:
 ```
