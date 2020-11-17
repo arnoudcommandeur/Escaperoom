@@ -18,7 +18,7 @@ Step 3: Use the website on your computer. A detailed how-to-use movie can be fou
 
 The project contains the following directories:
 
-- 
+- .firebase - 
 
 
 ## Prerequisites
