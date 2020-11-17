@@ -1,6 +1,6 @@
 // Init contract
 var instance = await Collectables.deployed();
-await instance.setPricePerCollectable(2000000);
+await instance.setPricePerCollectable(1000000);
 
 var accounts = await web3.eth.getAccounts();
 await instance.createNewEscaperoom(accounts[1], "The mask", 100000);
@@ -21,7 +21,8 @@ instance.EscaperoomAdmins(accounts[1]).then(result => result);
 instance.EscapeRoomCounter.call().then(function (res) {console.log(res.toNumber())});
 instance.Escaperooms.call(1).then(function (res) {console.log(res)});
 
-
+// Retrieve Ether collected and send it to account
+await instance.withdraw(accounts[1]);
 
 // Testing
 instance.createNewEscaperoom(accounts[1], "The mask", "100000",{from: accounts[1]});
@@ -36,3 +37,6 @@ instance.balanceOf(accounts[0],5).then(result => result.toNumber());
 
 instance.pause();
 instance.unpause();
+
+// send money
+require(msg.sender.call.value(amountToWithdraw)());

@@ -40,7 +40,7 @@ contract Collectables is ERC1155PresetMinterPauser {
     mapping(address => uint) public EscaperoomAdmins;
 
     /// @notice This event is emitted after rewarding the visitor with a new token
-    /// @dev 
+    /// @dev This event can be used to update UI after recieving token
     /// @param _visitor The address of the Escape Room visitor that recieved the token
     /// @param _id The ID of the Escape Room
     event visitorRewarded(address indexed _visitor, uint indexed _id);
@@ -153,4 +153,13 @@ contract Collectables is ERC1155PresetMinterPauser {
         emit pricePerCollectableUpdated(msg.sender, _newPricePerCollectable);
     }
 
+    /// @notice This function sends all collected Ether to the ADMIN of the contract
+    /// @dev Function can only be invoked by the admin of the contract (via OpenZeppeling membership)
+    /// @param _reciever Address who recieves the Ether
+    function withdraw(address payable _reciever) public {
+        require(hasRole(DEFAULT_ADMIN_ROLE,msg.sender) == true, "ERROR: Calling address does not have DEFAULT_ADMIN_ROLE role");
+        uint amount = address(this).balance;
+        (bool success, ) = _reciever.call.value(amount)("");
+        require(success, "Transfer failed.");
+    }
 }
