@@ -18,7 +18,10 @@ Step 3: Use the website on your computer. A detailed how-to-use movie can be fou
 
 The project contains the following directories:
 
-- .firebase - 
+- .vs-code - This directory contains Visual Studio task definitions
+- build/contracts - This directory contains the output of compiled contracts (default Truffle folder)
+contracts - This directory contains the Collectable.sol contract and the defailt Migrations.sol contract which is used by Truffle migration script
+-  
 
 
 ## Prerequisites
