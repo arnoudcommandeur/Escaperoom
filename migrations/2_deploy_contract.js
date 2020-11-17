@@ -10,11 +10,12 @@ module.exports = (deployer) => {
 
         var accounts = await web3.eth.getAccounts();
         await instance.setPricePerCollectable(100000);
-        await instance.createNewEscaperoom(accounts[5], "The mask", 100000);
-        await instance.createNewEscaperoom(accounts[6], "The mask", 100000);
-        // await instance.createNewEscaperoom(accounts[7], "The mask", 100000);
-        // await instance.createNewEscaperoom(accounts[8], "The mask", 100000);
-        // await instance.createNewEscaperoom(accounts[9], "The mask", 100000);
+        await instance.createNewEscaperoom(accounts[5], "Escape Room 1", 100000);
+        await instance.createNewEscaperoom(accounts[6], "Escape Room 2", 100000);
+        await instance.createNewEscaperoom(accounts[7], "Escape Room 3", 100000);
+        await instance.createNewEscaperoom(accounts[8], "Escape Room 4", 100000);
+        await instance.createNewEscaperoom(accounts[9], "Escape Room 5", 100000);
+
 
         //await instance.rewardVisitor(1, accounts[0], {from: accounts[5]} );
         // await instance.rewardVisitor(2, accounts[0], {from: accounts[6]} );

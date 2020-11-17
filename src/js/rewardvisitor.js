@@ -27,7 +27,7 @@ App = {
       App.web3Provider = window.ethereum;
       try {
         // Request account access
-        alert("Modern dapp browser web3 initiated")
+        //alert("Modern dapp browser web3 initiated")
         await window.ethereum.enable();
       } catch (error) {
         // User denied account access...
@@ -37,7 +37,7 @@ App = {
     // Legacy dapp browsers...
     else if (window.web3) {
       App.web3Provider = window.web3.currentProvider;
-      alert("Legacy dapp browser web3 initiated")
+      //alert("Legacy dapp browser web3 initiated")
     }
     // If no injected web3 instance is detected, fall back to Ganache
     else {
@@ -52,7 +52,7 @@ App = {
     }
 
     if (App.web3Provider) {
-      alert('We have a provider :)');
+      //alert('We have a provider :)');
       web3 = new Web3(App.web3Provider);
  
       await web3.eth.getAccounts().then(v => {App.account = v} );
@@ -86,7 +86,7 @@ App = {
   },
 
   rewardVisitor: function(res) {
-    alert('App.reward');
+    //alert('App.reward');
 
     if (App.web3Provider) {
       $.getJSON('Collectables.json', function(data) {
@@ -137,7 +137,7 @@ $(function() {
   $(window).load(async function() {
     //alert('window.load');
     App.init();
-    await testEthereum();
+    //await testEthereum();
 
   });
 });

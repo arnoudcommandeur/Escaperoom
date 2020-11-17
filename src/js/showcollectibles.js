@@ -39,7 +39,7 @@ App = {
   },
 
   initContract: function() {
-    $.getJSON('Collectables.json', function(data) {
+    $.getJSON('Collectables.json?version=5', function(data) {
       // Get the necessary contract artifact file and instantiate it with @truffle/contract
       var CollectablesArtifact = data;
       App.contracts.Collectable = TruffleContract(CollectablesArtifact);
@@ -50,6 +50,7 @@ App = {
 
     App.contracts.Collectable.deployed().then(function(instance) {
     //collectableInstance = instance;
+      console.log('Contract address:' + instance.address);
 
       const subscription = web3.eth.subscribe(
         'logs',
