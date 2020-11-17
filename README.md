@@ -1,10 +1,12 @@
 # Escape Room Collectables
 
-An Ethereum based reward program for Escape Room lovers. 
-
-Finish the Escape Room within the specified time and earn your own ERC1155 collectable.
-
 This website is part of the ConsenSys Bootcamp 2020.
+
+An Ethereum based reward program for Escape Room lovers: Finish the Escape Room within the specified time and earn your own ERC1155 collectable.
+
+The goal of this website is to have escape visitors collect ERC1155 compatible tokens. The token are given away by the Escape Room admin after a visitor syccesfully completes the Escape Room.
+
+After finishing the Escape Room, the visitor must show a QRCode which is used by the Escape Room admin to start a token transfer. After the token transfer a event is sent to the client and the new token is visible within the UI.
 
 ## How to use this website?
 
@@ -12,7 +14,7 @@ Step 1: Make sure you have installed  all the tools described in the section [Pr
 
 Step 2: Follow instructions described [Getting started](#Getting-started)
 
-Step 3: Use the website on your computer. A detailed how-to-use movie can be found on Youtube
+Step 3: Start the website on your computer. A detailed how-to-use movie can be found on Youtube (watch the video right here)
 
 ## Directory structure
 
@@ -21,6 +23,7 @@ The project contains the following directories:
 - .vs-code - This folder contains Visual Studio task definitions
 - build/contracts - This folder contains the output of compiled contracts (default Truffle folder)
 contracts - This folder contains the Collectable.sol contract and the defailt Migrations.sol contract which is used by Truffle migration script
+- helpers - Command line utilities (for development only)
 - migrations - Default truffle folder which handle deployment of contracts, inclusing post deployment actions
 - node_modules - Folder which contains the OpenZeppeling default contracts
 - src - Folder that contains the UI
@@ -79,12 +82,6 @@ Deploy the ERC1155 based smart contract via:
 truffle migrate --reset
 ```
 
-Optional: Make sure that the src directory contains the right Collectables.json file after deploying (only wehen deploying to Firebase). You can copy the file via:
-
-```
-copy .\build\contracts\Collectables.json .\src\Collectables.json /Y
-```
-
 - Test 
 
 to make sure everything is working as expected, please run the following command to run the Truffle tests.
@@ -98,5 +95,12 @@ you can now start your local webserver (lite-server) via:
 npm run dev
 ```
 
-You should now be able to browse the Escape Room website within a web3 compatible browser via http://localhost:3000/
+
+Optional: Make sure that the src directory contains the right Collectables.json file after deploying (only wehen deploying to Firebase). You can copy the file via:
+
+```
+copy .\build\contracts\Collectables.json .\src\Collectables.json /Y
+```
+
+You should now be able to browse the Escape Room website within a web3 compatible browser via http://localhost:3000/. Make sure your MetaMask extension is poiting to your local Ganache-cli and you grant the website access to use web3 provider.
 
