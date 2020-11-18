@@ -14,16 +14,18 @@ let catchRevert = require("./exceptionsHelpers.js").catchRevert
 
 contract('Collactables', function(accounts) {
 
+    const pricePerToken = "100000"
+
     const contractOwner = accounts[0]
     const visitor1 = accounts[1]
     const visitor2 = accounts[2]
     const visitor3 = accounts[3]
     const visitor4 = accounts[4]
-    const visitor5 = accounts[5]
-    const escapeRoomAdmin1 = accounts[6]
-    const escapeRoomAdmin2 = accounts[7]
-    const escapeRoomAdmin3 = accounts[8]
-    const escapeRoomAdmin4 = accounts[9]
+    const escapeRoomAdmin1 = accounts[5]
+    const escapeRoomAdmin2 = accounts[6]
+    const escapeRoomAdmin3 = accounts[7]
+    const escapeRoomAdmin4 = accounts[8]
+    const escapeRoomAdmin5 = accounts[9]
 
     const emptyAddress = '0x0000000000000000000000000000000000000000'
 
@@ -33,7 +35,6 @@ contract('Collactables', function(accounts) {
     const escapeRoomName4 = 'escapeRoomName4'
     const escapeRoomName5 = 'escapeRoomName5'
 
-    // const price = "1000"
     // const excessAmount = "2000"
     // const name = "book"
 
@@ -63,7 +64,7 @@ contract('Collactables', function(accounts) {
 
     it("should be able to reward a visitor by Escape Room admin", async() => {
         const tx = await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 100, {from: contractOwner})
-        await instance.rewardVisitor(1, visitor1, {from: escapeRoomAdmin1})
+        await instance.rewardVisitor(visitor1, {from: escapeRoomAdmin1})
 
         const result = await instance.balanceOf.call(visitor1, 1, {from: visitor1})
         assert.equal(result.toString(10), 1, 'Token of escaperoom not available after reward')

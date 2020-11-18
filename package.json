@@ -28,6 +28,7 @@
   "homepage": "https://github.com/arnoudcommandeur/Escaperoom#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^3.2.0",
+    "@poanet/solidity-flattener": "^3.0.6",
     "@truffle/contract": "^4.2.28",
     "html5-qrcode": "^1.2.3",
     "solc": "^0.7.4",

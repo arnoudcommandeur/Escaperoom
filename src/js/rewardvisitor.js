@@ -72,17 +72,44 @@ App = {
 
       // Set the provider for our contract
       App.contracts.Collectable.setProvider(App.web3Provider);
+      App.contracts.Collectable.deployed().then(function(instance) { })
 
-
-      App.contracts.Collectable.deployed().then(function(instance) {
-
-      })
-
-
-      return 0; //App.showCollectablesMain();
+      return App.getEscapeRoomAdminDetails();
     });
+  },
 
-    //return App.reward();
+  getEscapeRoomAdminDetails: function() {
+
+    if (App.web3Provider) {
+      $.getJSON('Collectables.json', function(data) {
+        // Get the necessary contract artifact file and instantiate it with @truffle/contract
+        var CollectablesArtifact = data;
+        App.contracts.Collectable = TruffleContract(CollectablesArtifact);
+
+        // Set the provider for our contract
+        App.contracts.Collectable.setProvider(App.web3Provider);
+
+        App.contracts.Collectable.deployed().then(function(instance) {
+            return instance.getEscapeRoomAdminDetails.call({from: App.account[0]}).then(function (res) {
+              document.getElementById("MyEscapeRoomName").innerHTML = res[0];
+              document.getElementById("MyTokenBalance").innerHTML = res[1].toNumber();
+
+              console.log("Contract address:" + instance.address);
+              console.log("Current address :" + App.account[0]);
+
+              console.log(res);
+
+              web3.eth.getBalance(App.account[0]).then(result => {
+                document.getElementById("MyEtherBalance").innerHTML = web3.utils.fromWei(result, 'ether');
+              });
+
+            });
+        })
+      });
+    } else {
+      alert('Error: No App.web3Provider Yet!');
+    }
+    return 0;
   },
 
   rewardVisitor: function(res) {
@@ -107,7 +134,8 @@ App = {
         if ( web3.utils.isAddress(address)) {
           //alert('YES Valid address');
           App.contracts.Collectable.deployed().then(function(instance) {
-            instance.rewardVisitor(1, address, {from: App.account[0], gas: 1000000});
+            instance.rewardVisitor(/*1, */ address, {from: App.account[0], gas: 1000000}).then(App.getEscapeRoomAdminDetails());
+            
             console.log(address);
           })
         }
@@ -121,17 +149,17 @@ App = {
 // end App
 };
 
-async function testEthereum() {
+// async function testEthereum() {
 
-  const provider = await detectEthereumProvider()
+//   const provider = await detectEthereumProvider()
 
-  if (provider) {
-    alert('JA! Provider gevonden via nieuw script');
-  } else {
-    alert('NEE, HELAAS NOG STEEDS GEEN PROVIDER!');
-      setTimeout(testEthereum, 3000); // 3 seconds
-  }
-}
+//   if (provider) {
+//     alert('JA! Provider gevonden via nieuw script');
+//   } else {
+//     alert('NEE, HELAAS NOG STEEDS GEEN PROVIDER!');
+//       setTimeout(testEthereum, 3000); // 3 seconds
+//   }
+// }
 
 $(function() {
   $(window).load(async function() {

@@ -13,12 +13,14 @@ await instance.balanceOf(accounts[2],1).then(result => result.toNumber());
 await instance.mintAdmin(1, 100);
 await instance.setPricePerCollectable(2000000);
 
+instance.getEscapeRoomAdminDetails.call({from: accounts[4]}).then(function (res) {console.log(res.toNumber())});
+
 // Get contract balance
 await web3.eth.getBalance(instance.address).then(result => console.log(result));
 
 instance.EscaperoomAdmins(accounts[1]).then(result => result);
 
-instance.EscapeRoomCounter.call().then(function (res) {console.log(res.toNumber())});
+
 instance.Escaperooms.call(1).then(function (res) {console.log(res)});
 
 // Retrieve Ether collected and send it to account

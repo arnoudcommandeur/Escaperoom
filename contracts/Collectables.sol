@@ -86,15 +86,18 @@ contract Collectables is ERC1155PresetMinterPauser {
 
     /// @notice This function rewards the visitor of an escape room. After rewarding the event visitorRewarded is emitted
     /// @dev This function can only be called by the admin of the escape room 
-    /// @param _id The ID of the escape room
     /// @param _visitor The visitor that must be rewarded
-    function rewardVisitor(uint _id, address _visitor) public {
-        require(EscaperoomAdmins[msg.sender] == _id, "ERROR: User is not an admin of the Escaperoom!");
-        require(balanceOf(_visitor, _id) == 0, "ERROR: User has collectable already");
-        safeTransferFrom(msg.sender,_visitor,_id,1,"0x");
+//    function rewardVisitor(uint _id, address _visitor) public {
+    function rewardVisitor(address _visitor) public {
+        uint id = EscaperoomAdmins[msg.sender];
+
+//        require(EscaperoomAdmins[msg.sender] == _id, "ERROR: User is not an admin of the Escaperoom!");
+        require(id != 0, "ERROR: User is not an admin of the Escaperoom!");
+        require(balanceOf(_visitor, id) == 0, "ERROR: User has collectable already");
+        safeTransferFrom(msg.sender,_visitor,id,1,"0x");
 
         // Emit event
-        emit visitorRewarded(_visitor, _id);
+        emit visitorRewarded(_visitor, id);
     }
 
     /// @notice This function rewards multiple visitors of an escape room. After rewarding the event visitorRewarded is emitted per visitor
@@ -162,4 +165,15 @@ contract Collectables is ERC1155PresetMinterPauser {
         (bool success, ) = _reciever.call.value(amount)("");
         require(success, "Transfer failed.");
     }
+
+    // Example: instance.getEscapeRoomAdminDetails.call({from: accounts[5]}).then(function (res) {console.log(res)});
+    function getEscapeRoomAdminDetails() public view returns(string memory EscapeRoomName, uint TokenBalance, uint EtherBalance) {
+//        theSender = msg.sender;
+        uint id = EscaperoomAdmins[msg.sender];
+
+        EscapeRoomName = Escaperooms[id]._Name;
+        TokenBalance = balanceOf(msg.sender, id); // Escaperooms[id]._TotalCollectables;
+        EtherBalance = msg.sender.balance;
+    }
+
 }
