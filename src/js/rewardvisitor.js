@@ -7,6 +7,7 @@ App = {
   init: async function() {
     //alert('App.init');
     const btn = document.querySelector('#reward');
+    const btnNewTokens = document.querySelector('#NewTokens');
 
     let address = window.location.search;
     address = address.substring(address.length-40);
@@ -14,6 +15,9 @@ App = {
 
     btn.addEventListener('click', async function(event){
       await App.rewardVisitor();
+    });
+    btnNewTokens.addEventListener('click', async function(event){
+      await App.buyTokens();
     });
 
     return App.initWeb3();
@@ -134,7 +138,7 @@ App = {
         if ( web3.utils.isAddress(address)) {
           //alert('YES Valid address');
           App.contracts.Collectable.deployed().then(function(instance) {
-            instance.rewardVisitor(/*1, */ address, {from: App.account[0], gas: 1000000}).then(App.getEscapeRoomAdminDetails());
+            instance.rewardVisitor(/*1, */ address, {from: App.account[0], gas: 1000000}).then( () => App.getEscapeRoomAdminDetails());
             
             console.log(address);
           })
@@ -146,26 +150,29 @@ App = {
     return 0;
   },
 
+  buyTokens: function(res) {
+    console.log('App.buyTokens');
+
+    if (App.web3Provider) {
+      $.getJSON('Collectables.json?version=2', function(data) {
+        // Get the necessary contract artifact file and instantiate it with @truffle/contract
+        var CollectablesArtifact = data;
+        App.contracts.Collectable = TruffleContract(CollectablesArtifact);
+
+        // Set the provider for our contract
+        App.contracts.Collectable.setProvider(App.web3Provider);
+
+        App.contracts.Collectable.deployed().then(function(instance) {
+          instance.mintTokens(1000, {from: App.account[0], gas: 1000000, value: web3.utils.toWei("1.0", "ether")}).then( () => App.getEscapeRoomAdminDetails());
+        })
+    })
+    return 0;
+  }},
 // end App
 };
 
-// async function testEthereum() {
-
-//   const provider = await detectEthereumProvider()
-
-//   if (provider) {
-//     alert('JA! Provider gevonden via nieuw script');
-//   } else {
-//     alert('NEE, HELAAS NOG STEEDS GEEN PROVIDER!');
-//       setTimeout(testEthereum, 3000); // 3 seconds
-//   }
-// }
-
 $(function() {
   $(window).load(async function() {
-    //alert('window.load');
     App.init();
-    //await testEthereum();
-
   });
 });

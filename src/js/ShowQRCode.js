@@ -90,6 +90,7 @@ $(function() {
     });	
 
     document.getElementById("MyAddress").innerHTML = App.account[0];
+    document.getElementById("RewardLink").href = url;
     console.log(url);
     return App.subscribeEvents();
   };

@@ -84,7 +84,7 @@ contract('Collactables', function(accounts) {
 
         const tx = await instance.setPricePerCollectable(newPricePerToken, {from: contractOwner})
         await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 0, {from: contractOwner})
-        await instance.mint(1, newTokens, {from: escapeRoomAdmin1, value: newTokens*newPricePerToken})
+        await instance.mintTokens(newTokens, {from: escapeRoomAdmin1, value: newTokens*newPricePerToken})
 
     })
 
@@ -94,7 +94,7 @@ contract('Collactables', function(accounts) {
 
         const tx = await instance.setPricePerCollectable(newPricePerToken, {from: contractOwner})
         await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 0, {from: contractOwner})
-        await catchRevert(instance.mint(1, newTokens, {from: escapeRoomAdmin1, value: (newTokens*newPricePerToken-1)}))
+        await catchRevert(instance.mintTokens(newTokens, {from: escapeRoomAdmin1, value: (newTokens*newPricePerToken-1)}))
     })
 
 })
