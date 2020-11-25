@@ -72,21 +72,21 @@ You first have to clone this repo to have all the sources locally available.
 
 - Install packages
 
-Install all the dependencies using the followining command:
+Install all the dependencies using the following command:
 ```
 npm install
 ```
 
 - Start test blockchain
 
-Start your own local Ganache-cli. Mak sure ganache is listening on port 8545 and it uses the same mnemonic as your MetaMask is using. You can start genache-cli with the -m option and add your mnemonic between "". Start genache-cli and execute the other commands in a new terminal so ganache-cli keeps running.
+Now start your own local Ganache-cli blockchain. Make sure Ganache is listening on port 8545 and it uses the same mnemonic as your MetaMask is using. You can start genache-cli with the -m option and add your mnemonic between "". Make sure to start genache-cli in a seperate terminal and execute all other commands in a new terminal so ganache-cli keeps running. You can find your mnemonic within MetaMask under Settings -> Security & Privacy
 ```
 ganache-cli -m "YOUR METAMASK MNEMONIC"
 ```
 
 - Deploy smart contract
 
-Deploy the ERC1155 based smart contract via:
+Deploy the ERC1155 based smart contract via (remeber to open a new terminal first before continuing):
 ```
 truffle migrate --reset
 ```
@@ -105,14 +105,7 @@ you can now start your local webserver (lite-server) via:
 npm run dev
 ```
 
-
-Optional: Make sure that the src directory contains the right Collectables.json file after deploying (only when deploying to Firebase). You can copy the file via:
-
-```
-copy .\build\contracts\Collectables.json .\src\Collectables.json /Y
-```
-
-You should now be able to browse the Escape Room website within a web3 compatible browser via http://localhost:3000/. Make sure your MetaMask extension is poiting to your local Ganache-cli and you grant the website access to use web3 provider. For debugging purposes, you should press F12 and watch the output in the Console.
+You should now be able to browse the Escape Room website within a web3 compatible webbrowser via http://localhost:3000/. Make sure your MetaMask extension is poiting to your local Ganache-cli and you grant the website access to use web3 provider. For debugging purposes, you could press F12 and watch the output in the Console.
 
 ## Other information
 
@@ -132,17 +125,19 @@ Unfortunately the UI and smart contract are not ready yet, at least the followin
 5. Additional Admin functionality (withdraw Ether, create new Escape Room)
 
 ### Smart Contract
-1. Increase the number of Escape Rooms an admin can handle to multiple rooms.
+1. Increase the number of Escape Rooms an admin can handle (at the moment only 1)
 2. Write more tests.
-3. Refactor the s_Escaperoom struct. Most info should be stored off-chain.
+3. Refactor the s_Escaperoom struct. Most info should be stored off-chain to save Ether.
 4. Make the Price per token Escape Room dependent.
 
 # Final words
-I really liked this course! The course content is great and it pushed me sometimes to the limits to really understand all the lessons.
+I really liked this course! The course content is great and it pushed me sometimes to the limits to really understand the concepts.
 
-I think the final project is the best part of the course. It forced me to program the way Ethereum and Solidity should be used (with Truffle). But also I learned a lot about Github and Visual Studio Code and all its extensions. 
+I think the final project is the best part of the course. It forced me to develop the way Ethereum and Solidity should be used (with Truffle). But also I learned a lot about Github and Visual Studio Code and all its extensions. 
 
 There's still a lot to learn, but for now I think I have a good starting point to deepen my knowledge. Especially IPFS and SSI are on the shortlist :)
+
+For now, I'm a happy blockchain developer :)
 
 Please contact me if you have any questions.
 
