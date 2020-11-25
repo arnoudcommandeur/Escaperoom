@@ -1,8 +1,10 @@
 # Escape Room Collectables
 
+**Welcome to my Escape Room Collectables Github repro!**
+
 This website is part of the ConsenSys Bootcamp 2020.
 
-This is an Ethereum based reward program for Escape Room lovers: Finish the Escape Room within the specified time and you will earn your own ERC1155 collectable.
+This repo contains an Ethereum based reward program for Escape Room lovers: Finish the Escape Room within the specified time and you will earn your own ERC1155 collectable.
 
 The goal of this website is to have escape room visitors collect ERC1155 compatible tokens. The tokens are given away by the Escape Room admin after a visitor succesfully completes the Escape Room.
 
