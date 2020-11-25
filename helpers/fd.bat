@@ -1,2 +1,2 @@
-copy .\build\contracts\Collectables.json .\src\Collectables.json /Y
+copy ..\build\contracts\Collectables.json ..\src\Collectables.json /Y
 firebase deploy

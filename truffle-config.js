@@ -37,7 +37,7 @@ module.exports = {
         );
       },
       network_id: "*",
-      gas: 4000000
+      gas: 5000000
     }
   }
 };

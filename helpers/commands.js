@@ -43,3 +43,7 @@ instance.unpause();
 
 // send money
 require(msg.sender.call.value(amountToWithdraw)());
+
+
+LET OP: ONDERSTAAND COMMANDO UITVOEREN VANUIT EEN DIR ZONDER SPECIALE TEKENS, BIJ C:\TEMP\
+npx truffle-flattener ./contracts/SimpleToken.sol > ./contracts/FlatSimpleToken.sol

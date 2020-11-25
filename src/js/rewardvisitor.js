@@ -69,7 +69,7 @@ App = {
   initContract: function() {
     //alert('App.initContract');
 
-    $.getJSON('Collectables.json', function(data) {
+    $.getJSON('Collectables.json?version=1', function(data) {
       // Get the necessary contract artifact file and instantiate it with @truffle/contract
       var CollectablesArtifact = data;
       App.contracts.Collectable = TruffleContract(CollectablesArtifact);
@@ -85,7 +85,7 @@ App = {
   getEscapeRoomAdminDetails: function() {
 
     if (App.web3Provider) {
-      $.getJSON('Collectables.json', function(data) {
+      $.getJSON('Collectables.json?version=1', function(data) {
         // Get the necessary contract artifact file and instantiate it with @truffle/contract
         var CollectablesArtifact = data;
         App.contracts.Collectable = TruffleContract(CollectablesArtifact);
@@ -120,7 +120,7 @@ App = {
     //alert('App.reward');
 
     if (App.web3Provider) {
-      $.getJSON('Collectables.json', function(data) {
+      $.getJSON('Collectables.json?version=1', function(data) {
         // Get the necessary contract artifact file and instantiate it with @truffle/contract
         var CollectablesArtifact = data;
         App.contracts.Collectable = TruffleContract(CollectablesArtifact);
@@ -154,7 +154,7 @@ App = {
     console.log('App.buyTokens');
 
     if (App.web3Provider) {
-      $.getJSON('Collectables.json?version=2', function(data) {
+      $.getJSON('Collectables.json?version=1', function(data) {
         // Get the necessary contract artifact file and instantiate it with @truffle/contract
         var CollectablesArtifact = data;
         App.contracts.Collectable = TruffleContract(CollectablesArtifact);
