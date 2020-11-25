@@ -10,6 +10,8 @@ After finishing the Escape Room, the visitor must show his QRCode which contains
 
 Although this website is specific for Escape Rooms, the general idea of rewarding and collecting tokens can be reused to build a wide range of other solutions.
 
+This site should be used on a mobile device, but for testing purposes I explain only the desktop version (although it's working on my mobile phone too with help of Firebase (webhosting) and MetaMask mobile).
+
 ## How to use this website?
 
 Step 1: Make sure you have installed all the tools described in the section [Prerequisites](#Prerequisites)
