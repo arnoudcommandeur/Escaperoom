@@ -3,4 +3,8 @@ The live version of the Collectables.sol smart contract can be found here:
 - Network: Rinkeby
 - Address: 0x41319065BB027BDD29362fc803F63bD3a6F5c1BF 
 
-Show verification: https://rinkeby.etherscan.io/address/0x41319065bb027bdd29362fc803f63bd3a6f5c1bf#code
+The contract is bound to: escaperoomtoken.eth via Ethereum Name Service (ENS)
+Check here for full details: https://rinkeby.etherscan.io/enslookup-search?search=escaperoomtoken.eth
+
+Show verified contract: 
+https://rinkeby.etherscan.io/address/0x41319065bb027bdd29362fc803f63bd3a6f5c1bf#code

@@ -125,7 +125,7 @@ You should now be able to browse the Escape Room DApp within a web3 compatible w
 
 - See [here](./design_patterns_decisions.md) for more information about design patterns.
 - See [here](./avoiding_common_attacks.md) for more information about avoiding common attacks.
-- See [here](./deployed_address.txt) for more information about the testnet (Rinkeby) address of the validated smart contract.
+- See [here](./deployed_address.txt) for more information about the testnet (Rinkeby) address of the validated smart contract. Here you find also the ENS name of the deployed contract.
 
 ## To Do's
 
