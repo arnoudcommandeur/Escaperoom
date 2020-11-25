@@ -112,9 +112,7 @@ App.logresult = result;
 
         if (tokens.toNumber() > 0) {
           console.log(tokens.toNumber());
-          //collectableTemplate.find('.panel-title').text(data[i].name);
-          //collectableTemplate.find('img').attr('src', './images/' + EscapeRoomCounter + '.jpg');
-          collectableTemplate.find('.numberCircle').text(EscapeRoomCounter);
+          collectableTemplate.find('.numberCircle').text('Escaperoom reward Token ID: ' + EscapeRoomCounter);
           // collectableTemplate.find('.pet-age').text(data[i].age);
           // collectableTemplate.find('.pet-location').text(data[i].location);
           // collectableTemplate.find('.btn-adopt').attr('data-id', data[i].id);
