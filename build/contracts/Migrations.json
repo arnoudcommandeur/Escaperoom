@@ -924,12 +924,12 @@
     "1606301524393": {
       "events": {},
       "links": {},
-      "address": "0x50562d9dFf5900219A66faBeC02c430e822117b4",
-      "transactionHash": "0x52952729a023652bb56f22a4dba9144f3aa0f7fd8f527470d9602ce06d8e6082"
+      "address": "0x155550280894bbBeD0df26FeC4505c1c3e83A135",
+      "transactionHash": "0xe81cfe88402552cb4253b41129ff297b3f63d24f3e4663ae4615bfab53b9a6b4"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-11-25T10:55:04.944Z",
+  "updatedAt": "2020-11-25T11:57:56.409Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

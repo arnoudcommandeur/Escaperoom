@@ -23,7 +23,7 @@ Step 1: Make sure you have installed all the tools described in the section [Pre
 
 Step 2: Follow the instructions described in [Getting started](#Getting-started)
 
-Step 3: Start the DApp on your computer. A detailed how-to-use video can be found on YouTube (watch the video right here)
+Step 3: Start the DApp on your computer. A detailed how-to-use video can be found on YouTube (watch the video here https://youtu.be/S4ji74EOMoI)
 
 ## Directory structure
 
@@ -99,11 +99,11 @@ truffle migrate --reset
 ```
 Part of the deployment is the creation of 5 escape rooms. The accounts 5 till 9 are the admins of each own Escape Room. Make sure to use this accounts when testing tokentransfers within the DApp.
 ```
-instance.createNewEscaperoom(accounts[5], "Escape Room 1", 1000);
-instance.createNewEscaperoom(accounts[6], "Escape Room 2", 1000);
-instance.createNewEscaperoom(accounts[7], "Escape Room 3", 1000);
-instance.createNewEscaperoom(accounts[8], "Escape Room 4", 1000);
-instance.createNewEscaperoom(accounts[9], "Escape Room 5", 1000);
+instance.createNewEscaperoom(accounts[5], "Escape Room 1", 0);
+instance.createNewEscaperoom(accounts[6], "Escape Room 2", 0);
+instance.createNewEscaperoom(accounts[7], "Escape Room 3", 0);
+instance.createNewEscaperoom(accounts[8], "Escape Room 4", 0);
+instance.createNewEscaperoom(accounts[9], "Escape Room 5", 0);
 ```
 
 - Test 
