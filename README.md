@@ -23,7 +23,7 @@ Step 1: Make sure you have installed all the tools described in the section [Pre
 
 Step 2: Follow the instructions described in [Getting started](#Getting-started)
 
-Step 3: Start the DApp on your computer. A detailed how-to-use video can be found on YouTube (watch the video here https://youtu.be/S4ji74EOMoI)
+Step 3: Start the DApp on your computer. A detailed how-to-use video can be found on YouTube (watch the video here: https://youtu.be/h_uKj-JBTQc)
 
 ## Directory structure
 
