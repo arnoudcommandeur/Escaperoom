@@ -1,6 +1,8 @@
+![Escape Room](https://github.com/arnoudcommandeur/Escaperoom/blob/main/src/images/logo.jpg?raw=true)
+
 # Escape Room Collectables
 
-**Welcome to my Escape Room Collectables Github repro!**
+**Welcome to my Escape Room Collectables Github repo!**
 
 This website is part of the ConsenSys Bootcamp 2020.
 
