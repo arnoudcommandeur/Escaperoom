@@ -9,10 +9,10 @@ with `npm install -g truffle`.
 
 */
 let BN = web3.utils.BN
-let Collactables = artifacts.require('Collectables')
+let Collectables = artifacts.require('Collectables')
 let catchRevert = require("./exceptionsHelpers.js").catchRevert
 
-contract('Collactables', function(accounts) {
+contract('Collectables', function(accounts) {
 
     const pricePerToken = "100000"
 
@@ -41,7 +41,7 @@ contract('Collactables', function(accounts) {
     let instance
 
     beforeEach(async () => {
-        instance = await Collactables.new()
+        instance = await Collectables.new()
     })
 
     it("should add a new Escape Room by the contractOwner", async() => {
@@ -70,6 +70,15 @@ contract('Collactables', function(accounts) {
         assert.equal(result.toString(10), 1, 'Token of escaperoom not available after reward')
     })
 
+    it("should not be able to reward the same visitor twice by the samen Escape Room admin", async() => {
+        const tx = await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 100, {from: contractOwner})
+        await instance.rewardVisitor(visitor1, {from: escapeRoomAdmin1})
+        await catchRevert(instance.rewardVisitor(visitor1, {from: escapeRoomAdmin1}))
+
+        const result = await instance.balanceOf.call(visitor1, 1, {from: visitor1})
+        assert.equal(result.toString(10), 1, 'Multiple tokens of same escaperoom')
+    })
+
     it("should only be able for the contractOwner to mint new free tokens", async() => {
         const tx = await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 100, {from: contractOwner})
         await instance.mintAdmin(1, 100, {from: contractOwner})
@@ -95,6 +104,46 @@ contract('Collactables', function(accounts) {
         const tx = await instance.setPricePerCollectable(newPricePerToken, {from: contractOwner})
         await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 0, {from: contractOwner})
         await catchRevert(instance.mintTokens(newTokens, {from: escapeRoomAdmin1, value: (newTokens*newPricePerToken-1)}))
+    })
+
+    it("should not be able to withdraw tokens as a non smartcontract owner", async() => {
+        const newPricePerToken = 100000
+        const newTokens = 1000
+
+        const tx = await instance.setPricePerCollectable(newPricePerToken, {from: contractOwner})
+        await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 0, {from: contractOwner})
+        await instance.mintTokens(newTokens, {from: escapeRoomAdmin1, value: newTokens*newPricePerToken})
+
+        await catchRevert(instance.withdraw(escapeRoomAdmin1, {from: escapeRoomAdmin1}))
+    })
+
+    it("should be able to withdraw tokens as a smartcontract owner to own address", async() => {
+        const newPricePerToken = 100000
+        const newTokens = 1000
+
+        const tx = await instance.setPricePerCollectable(newPricePerToken, {from: contractOwner})
+        await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 0, {from: contractOwner})
+        await instance.mintTokens(newTokens, {from: escapeRoomAdmin1, value: newTokens*newPricePerToken})
+
+        await instance.withdraw(contractOwner, {from: contractOwner})
+    })
+
+    it("should be able to withdraw tokens as a smartcontract owner to other address", async() => {
+        const newPricePerToken = 100000
+        const newTokens = 1000
+
+        const tx = await instance.setPricePerCollectable(newPricePerToken, {from: contractOwner})
+        await instance.createNewEscaperoom(escapeRoomAdmin1, escapeRoomName1, 0, {from: contractOwner})
+        await instance.mintTokens(newTokens, {from: escapeRoomAdmin1, value: newTokens*newPricePerToken})
+
+        await instance.withdraw(escapeRoomAdmin1, {from: contractOwner})
+    })
+
+    it("should not be able to change tokenprice for non contract owner", async() => {
+        const newPricePerToken = 100000
+        const newTokens = 1000
+
+        const tx = await catchRevert(instance.setPricePerCollectable(newPricePerToken, {from: visitor1}))
     })
 
 })
